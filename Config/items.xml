@@ -1,0 +1,282 @@
+<!-- =========================================================
+     BLOODLINES — VANGUARD PHASE 1 (COMPLETE ITEMS FILE) — UPDATED v2
+     Changes applied:
+       ✅ ALL CustomIcon values set to "ApexOrder"
+       ✅ All custom item names affixed with "bloodlines"
+       ✅ ALL items explicitly set DescriptionKey -> <itemName>Desc
+       ✅ ALL items forced EconomicValue=0 and SellableToTrader=false
+     ========================================================= -->
+
+<configs>
+  <append xpath="/items">
+
+    <!-- =========================
+         Welcome Note (story)
+         ========================= -->
+    <item name="bloodlinesWelcomeNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesWelcomeNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesWelcomeNote"/>
+        <property name="PromptDescription" value="bloodlinesWelcomeNoteDesc"/>
+      </property>
+    </item>
+
+    <!-- =========================
+         Bloodlines Class Book (spawns 5 class notes)
+         ========================= -->
+    <item name="bloodlinesClassBook">
+      <property name="Extends" value="schematicMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+      <property name="Tags" value="book,bloodlines"/>
+      <property name="Group" value="Misc"/>
+      <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesClassBookDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+
+      <property class="Action0">
+        <property name="Class" value="OpenBundle"/>
+        <property name="Delay" value="0"/>
+        <property name="Sound_start" value="close_garbage"/>
+        <property name="Create_item" value="bloodlinesVanguardNote,bloodlinesWardenNote,bloodlinesMachinistNote,bloodlinesScoutNote,bloodlinesPredatorNote"/>
+        <property name="Create_item_count" value="1,1,1,1,1"/>
+      </property>
+    </item>
+
+    <!-- =========================
+         Vanguard Helix (resource)
+         ========================= -->
+    <item name="bloodlinesVanguardHelix">
+      <property name="Extends" value="resourceScrapPolymers"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="Tags" value="resource,component,bloodlines,vanguard"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+      <property name="Group" value="Resources"/>
+      <property name="Stacknumber" value="500"/>
+
+      <property name="DescriptionKey" value="bloodlinesVanguardHelixDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+    </item>
+
+    <!-- =========================
+         Vanguard Note (read popup)
+         ========================= -->
+    <item name="bloodlinesVanguardNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesVanguardNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesVanguardNote"/>
+        <property name="PromptDescription" value="bloodlinesVanguardNoteDesc"/>
+      </property>
+    </item>
+
+    <!-- =========================
+         Vanguard Injector (popup on use)
+         ========================= -->
+    <item name="bloodlinesVanguardInjector">
+      <property name="Extends" value="drugSteroids"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+      <property name="Tags" value="medical,consumable,bloodlines,vanguard"/>
+      <property name="Group" value="Medical"/>
+      <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesVanguardInjectorDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="1.0"/>
+        <property name="Sound_start" value="player_drink"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesVanguardInjector"/>
+        <property name="PromptDescription" value="bloodlinesVanguardInjectorDesc"/>
+      </property>
+
+      <!-- LOCK + APPLY -->
+  <effect_group tiered="false">
+
+    <!-- If no class chosen (bloodlinesClass == 0), set Vanguard and add buff -->
+    <triggered_effect trigger="onSelfPrimaryActionEnd" action="ModifyCVar" target="self" cvar="bloodlinesClass" operation="set" value="1">
+      <requirement name="CVarCompare" target="self" cvar="bloodlinesClass" operation="Equals" value="0"/>
+    </triggered_effect>
+
+    <triggered_effect trigger="onSelfPrimaryActionEnd" action="AddBuff" target="self" buff="buffBloodlinesVanguard">
+      <requirement name="CVarCompare" target="self" cvar="bloodlinesClass" operation="Equals" value="0"/>
+    </triggered_effect>
+
+    <!-- If a class is already chosen (bloodlinesClass != 0), show message and do nothing else -->
+    <triggered_effect trigger="onSelfPrimaryActionEnd" action="ShowToolbeltMessage" target="self" message_key="bloodlinesInjectorAlreadyChosenMsg">
+      <requirement name="!CVarCompare" target="self" cvar="bloodlinesClass" operation="Equals" value="0"/>
+    </triggered_effect>
+
+  </effect_group>
+    </item>
+
+    <!-- =========================
+         Cracked Mutagen Case (OpenBundle -> Vanguard starter items)
+         ========================= -->
+    <item name="bloodlinesCrackedMutagenCase">
+      <property name="Extends" value="resourceScrapIron"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+      <property name="Tags" value="bundle,loot,bloodlines,mutagen"/>
+      <property name="Group" value="Resources"/>
+      <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesCrackedMutagenCaseDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+
+      <property class="Action0">
+        <property name="Class" value="OpenBundle"/>
+        <property name="Delay" value="0"/>
+        <property name="Sound_start" value="close_garbage"/>
+        <property name="Create_item" value="bloodlinesVanguardHelix,bloodlinesVanguardNote,bloodlinesVanguardInjector,bloodlinesClassBook,bloodlinesWelcomeNote"/>
+        <property name="Create_item_count" value="20,1,1,1,1"/>
+      </property>
+    </item>
+
+    <!-- =========================================================
+         OTHER CLASS NOTES
+         ========================================================= -->
+
+    <item name="bloodlinesWardenNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesWardenNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesWardenNote"/>
+        <property name="PromptDescription" value="bloodlinesWardenNoteDesc"/>
+      </property>
+    </item>
+
+    <item name="bloodlinesMachinistNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesMachinistNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesMachinistNote"/>
+        <property name="PromptDescription" value="bloodlinesMachinistNoteDesc"/>
+      </property>
+    </item>
+
+    <item name="bloodlinesScoutNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesScoutNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesScoutNote"/>
+        <property name="PromptDescription" value="bloodlinesScoutNoteDesc"/>
+      </property>
+    </item>
+
+    <item name="bloodlinesPredatorNote">
+      <property name="Extends" value="blankNoteMaster"/>
+      <property name="CreativeMode" value="Player"/>
+      <property name="CustomIcon" value="ApexOrder"/>
+	  <property name="Stacknumber" value="1"/>
+
+      <property name="DescriptionKey" value="bloodlinesPredatorNoteDesc"/>
+      <property name="EconomicValue" value="0"/>
+      <property name="SellableToTrader" value="false"/>
+
+      <property name="NoScrapping" value="true"/>
+      <property name="SoundPickup" value="map_grab"/>
+      <property name="SoundPlace" value="map_place"/>
+
+      <property class="Action0">
+        <property name="Class" value="Eat"/>
+        <property name="Delay" value="0.3"/>
+        <property name="Sound_start" value="read_mod"/>
+        <property name="Sound_in_head" value="true"/>
+        <property name="PromptTitle" value="bloodlinesPredatorNote"/>
+        <property name="PromptDescription" value="bloodlinesPredatorNoteDesc"/>
+      </property>
+    </item>
+
+  </append>
+</configs>

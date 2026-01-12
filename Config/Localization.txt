@@ -1,0 +1,53 @@
+Key,File,Type,UsedInMainMenu,NoTranslate,english
+
+# =========================
+# BLOODLINES — CORE
+# =========================
+
+bloodlinesWelcomeNote,items,Tool,,,Bloodlines: Welcome
+bloodlinesWelcomeNoteDesc,items,Tool,,,"[FF00FF]BLOODLINES INITIATION[-]\n\nYou wake with a burning in your veins.\nSomething ancient has bonded to your blood.\n\nFind a [FFFF00]Cracked Mutagen Case[-].\nRead the class notes.\nChoose carefully.\n\n[AAAAAA]Your choice will persist through death.[-]"
+
+bloodlinesClassBook,items,Tool,,,Bloodlines: Class Manual
+bloodlinesClassBookDesc,items,Tool,,,"A sealed Bloodlines manual.\n\nOpening this will reveal the five known bloodline paths."
+
+# =========================
+# BLOODLINES — VANGUARD
+# =========================
+
+bloodlinesVanguardHelix,items,Resource,,,Bloodlines: Vanguard Helix
+bloodlinesVanguardHelixDesc,items,Resource,,,"A hardened [FF3355]Vanguard[-] helix shard.\nUsed in Bloodlines crafting."
+
+bloodlinesVanguardNote,items,Tool,,,Bloodlines: Vanguard
+bloodlinesVanguardNoteDesc,items,Tool,,,"[FF3355]VANGUARD[-]\n\nRole: Frontline & aggro control\n\n• Built for heavy armour\n• Excels in close combat\n• High durability, lower damage\n\nYou stand where others cannot."
+
+bloodlinesVanguardInjector,items,Tool,,,Bloodlines: Vanguard Injector
+bloodlinesVanguardInjectorDesc,items,Tool,,,"A stabilised mutagen injector.\n\nInjecting this will permanently bind you to the [FF3355]Vanguard[-] bloodline.\n\n[AAAAAA]Only an admin-issued respec can undo this.[-]"
+
+bloodlinesInjectorAlreadyChosenMsg,ui,UI,,,Bloodlines: Class already chosen.
+
+bloodlinesBuffVanguard,buffs,Buff,,,Bloodlines: Vanguard
+bloodlinesBuffVanguardDesc,buffs,Buff,,,"[FF3355]Vanguard[-]\n\n• +20% Max Health\n• +10% Max Stamina\n• Reduced physical damage taken\n• Louder presence (draws attention)\n• Slightly reduced mobility"
+
+
+# =========================
+# BLOODLINES — MUTAGEN
+# =========================
+
+bloodlinesCrackedMutagenCase,items,Tool,,,Bloodlines: Cracked Mutagen Case
+bloodlinesCrackedMutagenCaseDesc,items,Tool,,,"A cracked containment case holding unstable mutagen.\n\nOpen to receive Bloodlines starter materials."
+
+# =========================
+# BLOODLINES — OTHER CLASSES (NOTES)
+# =========================
+
+bloodlinesWardenNote,items,Tool,,,Bloodlines: Warden
+bloodlinesWardenNoteDesc,items,Tool,,,"[66CCFF]WARDEN[-]\n\nRole: Sustain & support\n\n• Medical efficiency\n• Recovery-focused playstyle\n• Light armour specialist\n\nYou keep others alive."
+
+bloodlinesMachinistNote,items,Tool,,,Bloodlines: Machinist
+bloodlinesMachinistNoteDesc,items,Tool,,,"[FFD700]MACHINIST[-]\n\nRole: Engineering & construction\n\n• Trap and base efficiency\n• Crafting mastery\n• Medium armour focus\n\nYou turn scrap into survival."
+
+bloodlinesScoutNote,items,Tool,,,Bloodlines: Scout
+bloodlinesScoutNoteDesc,items,Tool,,,"[66FF66]SCOUT[-]\n\nRole: Recon & ranged pressure\n\n• Faster movement\n• Loot efficiency\n• Precision combat\n\nYou see danger before it strikes."
+
+bloodlinesPredatorNote,items,Tool,,,Bloodlines: Predator
+bloodlinesPredatorNoteDesc,items,Tool,,,"[B266FF]PREDATOR[-]\n\nRole: Melee DPS & momentum\n\n• Rewards aggression\n• Sustains through kills\n• Close-range dominance\n\nYou thrive in the swarm."

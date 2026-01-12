@@ -1,0 +1,32 @@
+<configs>
+  <append xpath="/buffs">
+
+    <buff name="buffBloodlinesVanguard"
+          name_key="bloodlinesBuffVanguard"
+          description_key="bloodlinesBuffVanguardDesc"
+          icon="ui_game_symbol_armor"
+          remove_on_death="false">
+
+      <stack_type value="ignore"/>
+      <duration value="0"/> <!-- infinite -->
+
+      <effect_group>
+        <!-- Core tank identity: tougher, steadier, less bursty -->
+        <passive_effect name="HealthMax" operation="perc_add" value=".20"/>
+        <passive_effect name="StaminaMax" operation="perc_add" value=".10"/>
+
+        <!-- Small mitigation. Keep this conservative to avoid invulnerability. -->
+        <passive_effect name="PhysicalDamageResist" operation="base_add" value="10" tags="coredamageresist"/>
+
+        <!-- “Aggro feel” option: Vanguard tends to pull attention because they’re louder.
+             (This helps enemies notice you sooner; it’s not a true “taunt”, but it fits vanilla systems.) -->
+        <passive_effect name="NoiseMultiplier" operation="perc_add" value=".25"/>
+
+        <!-- Slight downside: a bit less mobility (fits heavy role). Tune as you like. -->
+        <passive_effect name="Mobility" operation="perc_add" value="-.05"/>
+      </effect_group>
+
+    </buff>
+
+  </append>
+</configs>

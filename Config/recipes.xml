@@ -1,0 +1,30 @@
+<!-- =========================================================
+     BLOODLINES — VANGUARD PHASE 1 (RECIPES)
+     ========================================================= -->
+
+<configs>
+  <append xpath="/recipes">
+
+    <!-- Vanguard Injector (your exact recipe) -->
+    <recipe name="bloodlinesVanguardInjector" count="1" craft_time="10" craft_area="campfire">
+      <ingredient name="bloodlinesVanguardHelix" count="20"/>
+      <ingredient name="resourceScrapIron" count="20"/>
+      <ingredient name="resourceBrokenGlass" count="10"/>
+    </recipe>
+
+    <!-- Bloodlines Class Book (optional craft for testing) -->
+    <recipe name="bloodlinesClassBook" count="1" craft_time="5">
+      <ingredient name="resourcePaper" count="30"/>
+      <ingredient name="resourceLeather" count="5"/>
+      <ingredient name="resourceDuctTape" count="2"/>
+    </recipe>
+
+    <!-- Cracked Mutagen Case (optional craft for testing) -->
+    <recipe name="bloodlinesCrackedMutagenCase" count="1" craft_time="8">
+      <ingredient name="resourceScrapIron" count="10"/>
+      <ingredient name="resourceScrapPolymers" count="5"/>
+      <ingredient name="resourceDuctTape" count="2"/>
+    </recipe>
+
+  </append>
+</configs>
