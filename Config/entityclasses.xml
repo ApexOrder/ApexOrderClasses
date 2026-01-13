@@ -2,13 +2,4 @@
 	<set xpath="/entity_classes/entity_class[@name='playerMale' or @name='playerFemale']/property[@name='ItemsOnEnterGame.GameModeSurvivalMP']/@value">bloodlinesWelcomeNote</set>
 	<set xpath="/entity_classes/entity_class[@name='playerMale' or @name='playerFemale']/property[@name='ItemsOnEnterGame.GameModeSurvival']/@value">bloodlinesWelcomeNote</set>
 	<set xpath="/entity_classes/entity_class[@name='playerMale' or @name='playerFemale']/property[@name='ItemsOnEnterGame.GameModeSurvivalSP']/@value">bloodlinesWelcomeNote</set>
-
-	<!-- Bloodlines: make Vanguard Helix drop from normal zombies for testing (100%) -->
-	<append xpath="/entity_classes/entity_class[@name='zombieMale']/property[@name='DropOnDeath']">
-		<item name="bloodlinesVanguardHelix" probability="1.0" count="1"/>
-	</append>
-
-	<append xpath="/entity_classes/entity_class[@name='zombieFemale']/property[@name='DropOnDeath']">
-		<item name="bloodlinesVanguardHelix" probability="1.0" count="1"/>
-	</append>
 </configs>

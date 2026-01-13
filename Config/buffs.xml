@@ -26,6 +26,16 @@
         <passive_effect name="Mobility" operation="perc_add" value="-.05"/>
       </effect_group>
 
+      <effect_group name="VanguardHelixOnKill" tiered="false">
+        <!-- Fires only while the buff is active (so Vanguard only) -->
+        <triggered_effect trigger="onSelfKilledOther" action="CallGameEvent" event="addVanguardHelix"/>
+
+        <!-- Optional: if you want to reduce how often the event fires at all -->
+        <!-- If you leave this out, the handler can still roll 0–5 and often give 0 -->
+        <!-- <requirement name="RandomRoll" seed_type="Random" target="self" min_max="0,100" operation="LTE" value="100"/> -->
+      </effect_group>
+
+
     </buff>
 
   </append>

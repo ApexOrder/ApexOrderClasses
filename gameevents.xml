@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ApexOrder>
+
+<set xpath="/gameevents/action_sequence[@name='game_first_spawn']">
+		<property name="allow_user_trigger" value="false" />
+		<property name="action_type" value="Game" />
+
+		<action class="Delay">
+			<property name="phase" value="1" />
+			<property name="time" value="5" />
+		</action>
+
+		<action class="ShowMessageWindow">
+			<property name="phase" value="3" />
+			<property name="title" value="Welcome to the Bloodlines" />
+			<property name="message" value="[FFFF00]Welcome to the Bloodlines![FFFFFF]The outbreak has begun and the asylum walls can no longer contain the madness within. You are one of the few survivors in this twisted facility.[FF6666]Your past life before the breakdown will be revealed through your journey.[FFFFFF] Complete the first set of challenges and when you're sent to the trader, you'll receive your Class Token to choose your background.[00FF00]Survival Tips:[FFFFFF]• Follow the quest objectives carefully• Complete all initial challenges• Visit the trader when instructed• Your Class Token will unlock unique advantages• Your bicycle will help you escape quickly.[FF00FF]Good luck, and remember... in the Asylum, madness is just the beginning.[FFFFFF]" />
+		</action>
+	</set>
+
+<append xpath="/gameevents">
+<action_sequence name="addVanguardHelix">
+<action class="AddItems">
+<property name="added_items" value="bloodlinesVanguardHelix"/>
+<property name="added_item_counts" value="1"/>
+</action>
+</action_sequence>
+</append>
+
+</ApexOrder>
